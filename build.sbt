@@ -1,6 +1,6 @@
 
 ThisBuild / scalaVersion     := "3.4.1"
-ThisBuild / version          := "0.1.0"
+ThisBuild / version          := "0.0.0"
 ThisBuild / organizationName := "example"
 ThisBuild / testFrameworks   += new TestFramework("zio.test.sbt.ZTestFramework")
 ThisBuild / organization := "com.example.sensor"
@@ -8,6 +8,8 @@ maintainer := "Raman Mishra"
 
 enablePlugins(JavaAppPackaging)
 enablePlugins(DockerPlugin)
+
+dockerUsername := Some("raman08")
 
 ThisBuild / assemblyMergeStrategy := {
   case PathList("javax", "servlet", xs @ _*)         => MergeStrategy.first

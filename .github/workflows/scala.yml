@@ -2,6 +2,7 @@ name: HumiditySensorApp
 
 on:
   push:
+    branches: [ "main" ]
     tags:
       - "[0-9].[0-99].[0-99]"
   pull_request:
@@ -29,11 +30,7 @@ jobs:
         run: sbt assembly
       - name: Build Docker image
         run: sbt docker:publishLocal
-      - name: Tag Docker image
-        run: |
-          IMAGE_TAG=${GITHUB_REF#refs/tags/}
-          docker tag humidity-sensor-app:0.0.0 humidity-sensor-app:$IMAGE_TAG
       - name: Publish Docker image
         run: |
           IMAGE_TAG=${GITHUB_REF#refs/tags/}
-          sbt -Ddocker.username=${{ secrets.DOCKER_USERNAME }} -Ddocker.password=${{ secrets.DOCKER_PASSWORD }} docker:publish
+          sbt docker:publish
