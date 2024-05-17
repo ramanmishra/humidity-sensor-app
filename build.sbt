@@ -1,6 +1,6 @@
 
 ThisBuild / scalaVersion     := "3.4.1"
-ThisBuild / version          := "0.0.0"
+ThisBuild / version          := "0.1.0"
 ThisBuild / organizationName := "example"
 ThisBuild / testFrameworks   += new TestFramework("zio.test.sbt.ZTestFramework")
 ThisBuild / organization := "com.example.sensor"
